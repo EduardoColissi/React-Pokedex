@@ -1,10 +1,10 @@
 import axios from "axios";
-import { getPokemonInfosInterface } from "../interfaces/getPokemonInfosInterface";
+import { PokemonInfosInterface } from "../interfaces/pokemonInfosInterface";
 
 
-export async function getPokemonInfos(name: string): Promise<getPokemonInfosInterface> {
-  const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
-  const response = await axios.get<getPokemonInfosInterface>(url);
+export async function getPokemonInfos(name: string): Promise<PokemonInfosInterface> {
+  const url = `${process.env.REACT_APP_POKEAPI}/${name}`;
+  const response = await axios.get<PokemonInfosInterface>(url);
 
   return response.data;
 }

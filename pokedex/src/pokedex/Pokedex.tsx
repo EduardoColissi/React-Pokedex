@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { getPokemons } from "../pokemon/services/getPokemons";
 import { getPokemonInfos } from "../pokemon/services/getPokemonInfos";
-import { pokemonListInterface } from "../pokemon/interfaces/pokemonListInterface";
+import { PokemonListInterface } from "../pokemon/interfaces/pokemonListInterface";
+import { PokemonInfosInterface } from "../pokemon/interfaces/pokemonInfosInterface";
 
 export const Pokedex: React.FC<any> = () => {
-  const [pokemons, setPokemons] = useState<pokemonListInterface[]>([]);
-  const [selectedPokemon, setSelectedPokemon] = useState<pokemonListInterface | undefined>(undefined);
-  const [selectedPokemonInfos, setSelectedPokemonInfos] = useState<any | undefined>(undefined);
+  const [pokemons, setPokemons] = useState<PokemonListInterface[]>([]);
+  const [selectedPokemon, setSelectedPokemon] = useState<PokemonListInterface | undefined>(undefined);
+  const [selectedPokemonInfos, setSelectedPokemonInfos] = useState<PokemonInfosInterface | undefined>(undefined);
 
   useEffect(() => {
     getPokemons().then((response) => setPokemons(response.results));
