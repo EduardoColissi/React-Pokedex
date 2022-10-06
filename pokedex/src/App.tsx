@@ -1,12 +1,12 @@
 import React from "react";
-import logo from "./logo.svg";
-import { Pokedex } from "./pokedex/Pokedex";
+import { BrowserRouter as Router } from "react-router-dom";
+import Routes from "./routes/routes";
 
 const App: React.FC = () => {
   return (
-    <>
-      <Pokedex></Pokedex>
-    </>
+      <Router>
+        <Routes />
+      </Router>
   );
 };
 export default App;

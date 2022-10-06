@@ -10,19 +10,10 @@ import InfoTwoToneIcon from '@mui/icons-material/InfoTwoTone';
 export const Pokedex: React.FC<any> = () => {
   const [pokemons, setPokemons] = useState<PokemonListInterface[]>([]);
   const [selectedPokemon, setSelectedPokemon] = useState<PokemonListInterface | undefined>(undefined);
-  const [selectedPokemonInfos, setSelectedPokemonInfos] = useState<PokemonInfosInterface | undefined>(undefined);
 
   useEffect(() => {
     getPokemons().then((response) => setPokemons(response.results));
   }, []);
-
-  useEffect(() => {
-    if (!selectedPokemon) {
-      return;
-    } else {
-      getPokemonInfos(selectedPokemon.name).then((response) => setSelectedPokemonInfos(response));
-    }
-  }, [selectedPokemon]);
 
   return (
     <div>
@@ -48,8 +39,8 @@ export const Pokedex: React.FC<any> = () => {
         <Box mt={1}>
           <Grid container spacing={2}>
           {pokemons.map((pokemon) => (
-            <Grid item xs={6} lg={4}>
-              <Card>
+            <Grid item xs={6} lg={4} key={pokemon.name}>
+              <Card key={pokemon.name}>
                 <CardContent>
                   <Typography variant="h5" component="h2">
                     {pokemon.name}
@@ -64,13 +55,6 @@ export const Pokedex: React.FC<any> = () => {
             </Grid>
           ))}
           </Grid>
-          <h1>Pokedex</h1>
-          Pokemons:
-          
-          <h2>
-            Pokemon Selecionado: {selectedPokemon?.name || "Nenhum selecionado."}
-          </h2>
-          {JSON.stringify(selectedPokemonInfos, undefined, 2)}
         </Box>
       </Container>
     </div>
