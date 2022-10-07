@@ -41,4 +41,4 @@ npm start
 
 Pronto, divirta-se!
 
-##Feito com dedicação e carinho por Eduardo Colissi! < <3 />
+## Feito com dedicação e carinho por Eduardo Colissi! < <3 />
