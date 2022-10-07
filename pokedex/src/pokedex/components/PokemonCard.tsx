@@ -7,6 +7,7 @@ import styled from "styled-components";
 export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
   let color;
 
+  //Switch case responsável por atribuir a vaariável color uma cor de acordo com o tipo do pokemon em questão
   switch(pokemon.types[0].type.name){
     case "normal":
       color = "#c95e57";
@@ -81,16 +82,19 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
       break;
   }
 
+  //Estilização do componente Card do MaterialUI utilizando Styled-components
   const CardStyled = styled(Card)`
     text-align: center;
     max-width: 345px;
     background-color: #dbdbdb; 
   `;
 
+  //Estilização do componente CardHeader do MaterialUI utilizando Styled-components
   const CardHeaderStyled = styled(CardHeader)`
     background-color: ${color};
   `
 
+  //Função handleClick responsável por redirecionar o usuário para os detalhes do pokemon escolhido
   function handleClick() {
     window.location.href = `/pokemon/${pokemon.name}`;
   }

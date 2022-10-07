@@ -7,19 +7,24 @@ import { PokedexProps } from "./interfaces/componentsInterfaces";
 
 
 export const Pokedex: React.FC<PokedexProps> = () => {
+  //Definição de estados utilizando useState
   const [pokemons, setPokemons] = useState<PokemonInfosInterface[]>([]);
   const [busca, setBusca] = useState<string>('');
-  let render;
 
+  //Função de busca e filtro
   const PokemonsFiltrados = useMemo(() => {
     const lowerBusca = busca.toLowerCase();
     return pokemons.filter((pokemon) => pokemon.name.toLowerCase().includes(lowerBusca));
   }, [busca]);
 
+  // useEffect responsável por trazer os pokemons ao carregar a pagina
   useEffect(() => { 
     getPokemons().then((response) => setPokemons(response.results));
   }, []);
-  
+
+  let render;
+
+  //If para definir se a página trará os pokemons definidos pela busca ou, caso não tenha, trazer todos os pokemons
   if (PokemonsFiltrados.length === 0) {
     render = pokemons;
   } else {

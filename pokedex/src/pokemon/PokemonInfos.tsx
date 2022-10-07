@@ -10,6 +10,8 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export const PokemonInfos: React.FC<PokemonInfosProps> = () => {
     const [selectedPokemonInfos, setSelectedPokemonInfos] = useState<PokemonInfosInterface | undefined>(undefined);
+    
+    //useParams que utiliza o parametro da call da api para trazer as informações do pokemon escolhido
     const { name } = useParams<PokemonQueryParams>();
 
     let color;
@@ -99,6 +101,7 @@ export const PokemonInfos: React.FC<PokemonInfosProps> = () => {
         }
     ]
     
+    //useEffect que utiliza o retorno do useParams definido acima para trazer as informações do pokemon certo
     useEffect(() => {
         if (!name) {
           return;
@@ -119,6 +122,7 @@ export const PokemonInfos: React.FC<PokemonInfosProps> = () => {
         height: 100px;
     `
     
+    //handleClick para redirecionar o usuario para a landing page
     function handleClick() {
         window.location.href = `/`;
       }
@@ -190,44 +194,6 @@ export const PokemonInfos: React.FC<PokemonInfosProps> = () => {
                     </Grid>
                 </Box>
             </Container>
-            {/* <Container maxWidth="lg">
-                <Box mt={2}>
-                    <img width='90%' height='auto' src={selectedPokemonInfos?.sprites.front_default} alt="" />
-                </Box>
-                <Typography variant='h2'>
-                    {selectedPokemonInfos?.name}
-                </Typography>
-
-                <Box display="flex" flexDirection="row">
-                    <Typography>
-                        Espécie:
-                    </Typography>
-                    <Typography>
-                        {selectedPokemonInfos?.species.name}
-                    </Typography>
-                </Box>
-                <Box display="flex" flexDirection="row">
-                    <Typography>
-                        Altura:
-                    </Typography>
-                    <Typography>
-                    {selectedPokemonInfos?.height}
-                    </Typography>
-                </Box>
-
-                <Box display="flex" flexDirection="row">
-                    <Typography>
-                        Peso:
-                    </Typography>
-                    <Typography>
-                    {selectedPokemonInfos?.weight} 
-                    </Typography>
-                </Box> 
-            </Container>
-            <PieChart width={400} height={400}>
-                <Pie dataKey='value' isAnimationActive={false} data={dataGraph} cx={200} cy={200} outerRadius={80} fill="#8884d8" label />
-                <Tooltip />
-            </PieChart> */}
         </div>
     );
 };
