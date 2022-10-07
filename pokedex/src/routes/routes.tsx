@@ -15,7 +15,7 @@ export const Routes: React.FC<RoutesProps> = () => {
                 <Route exact path="/">
                     <Pokedex />
                 </Route>
-                <Route exact path="/pokemon">
+                <Route exact path="/pokemon/:name">
                     <PokemonInfos />
                 </Route>
             </Switch>

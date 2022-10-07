@@ -15,6 +15,10 @@ export const Pokedex: React.FC<any> = () => {
     getPokemons().then((response) => setPokemons(response.results));
   }, []);
 
+  function handleClick(pokemon: PokemonListInterface) {
+    window.location.href = `/pokemon/${pokemon.name}`;
+  }
+
   return (
     <div>
       <AppBar position="static">
@@ -29,9 +33,8 @@ export const Pokedex: React.FC<any> = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            Pokedex
           </Typography>
-          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
 
@@ -47,9 +50,9 @@ export const Pokedex: React.FC<any> = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <IconButton onClick={() => setSelectedPokemon(pokemon)} size="small">
-                    <InfoTwoToneIcon />
-                  </IconButton>
+                <IconButton onClick={() => handleClick(pokemon)} size="small">
+                  <InfoTwoToneIcon />
+                </IconButton>
                 </CardActions>
               </Card>
             </Grid>
