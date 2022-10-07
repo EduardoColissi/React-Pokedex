@@ -1,8 +1,8 @@
-import { PokemonListInterface } from "./pokemonListInterface";
+import { PokemonInfosInterface } from "./pokemonInfosInterface";
 
 export interface GetPokemonsInterface {
     count: number;
     next: null | string;
     previous: null | string;
-    results: PokemonListInterface[];
+    results: PokemonInfosInterface[];
   }
