@@ -7,7 +7,7 @@ import { PokedexProps } from "./interfaces/componentsInterfaces";
 
 
 export const Pokedex: React.FC<PokedexProps> = () => {
-  //Definição de estados utilizando useState
+  //Definição de estados utilizando useStat
   const [pokemons, setPokemons] = useState<PokemonInfosInterface[]>([]);
   const [busca, setBusca] = useState<string>('');
 
