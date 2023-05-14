@@ -42,7 +42,7 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
       break;
 
     case "steel":
-      color = "#65788a";
+      color = "#65768a";
       break;
 
     case "fire":
@@ -85,7 +85,7 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
   //Estilização do componente Card do MaterialUI utilizando Styled-components
   const CardStyled = styled(Card)`
     text-align: center;
-    max-width: 345px;
+    max-width: 355px;
     background-color: #dbdbdb; 
   `;
 
